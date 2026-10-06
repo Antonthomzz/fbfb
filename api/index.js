@@ -1,4 +1,4 @@
-import he from "he";
+import { decode } from "he";
 import got from "got";
 import express from "express";
 import { Meta } from "@antonthomzz/travex";
@@ -104,15 +104,15 @@ app.get("/", async (req, res) => {
                 ok: true,
                 author: "Anton",
                 result: {
-                    title: he.decode(data_title),
-                    description: he.decode(data_description),
+                    title: decode(data_title),
+                    description: decode(data_description),
                     duration: data_duration,
                     upload_date: data_upload_date,
                     timestamp: data_timestamp,
                     uploader: data_uploader,
                     uploader_id: data_uploader_id,
                     uploader_url: data_uploader_url,
-                    thumbnail: he.decode(data_thumbnail),
+                    thumbnail: decode(data_thumbnail),
                     url:
                         format.find(f => "hd_native".includes(f.quality))?.url ??
                         format.find(f => "sd_native".includes(f.quality))?.url,
