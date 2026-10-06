@@ -29,7 +29,7 @@ function timestamp(v) {
     return `${d}-${m}-${y}`;
 }
 
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
     const { url } = req.query;
 
     if (!/(?:https?:\/\/(?:[\w-]+\.)?(?:facebook\.com|fb\.watch)\/(?:[^#]*?!\/)?(?:(?:permalink\.php|video\/video\.php|photo\.php|video\.php|video\/embed|story\.php|watch(?:\/live)?\/?)\?(?:[^#]*?)(?:v|r|video_id|story_fbid)=|(?:[^\/]+)\/(?:v|r)\/|[^\/]+\/videos\/(?:[^\/]+\/)?|[^\/]+\/posts\/|events\/(?:[^\/]+\/)?|groups\/[^\/]+\/(?:permalink|posts)\/(?:[\da-f]+\/)?|watchparty\/)|facebook:)(?<id>pfbid[A-Za-z0-9]+|[\w-]+)/i.test(url)) {
